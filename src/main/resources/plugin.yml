@@ -1,0 +1,4 @@
+name: InventoryWarp
+version: '1.0-SNAPSHOT'
+main: dev.frozzy.inventorywarp.InventoryWarp
+api-version: '1.21'
