@@ -36,7 +36,7 @@ public class WarpCommand implements CommandExecutor, TabCompleter {
                 String name = args[1].replaceAll("&", "§");
                 Material icon = Material.valueOf(args[2]);
                 manager.addWarp(name, player.getLocation(), icon);
-
+                player.sendMessage("§aWarp erfolgreich hinzugefügt!");
             }
         } else if (args.length == 0) {
             if (player.hasPermission("inventorywarp.use")) {
