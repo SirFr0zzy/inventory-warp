@@ -85,7 +85,6 @@ public class WarpManager {
                 int finalI = i;
                 element.addClickAction(plugin, () -> {
                     player.openInventory(pagesInv.get(finalI - 1));
-                    System.out.println("Opening inventory " +( finalI - 1));
                 }, ClickType.LEFT);
                 page.setItem(45, element.getStack());
             }
@@ -95,7 +94,6 @@ public class WarpManager {
                 int finalI = i;
                 element.addClickAction(plugin, () -> {
                     player.openInventory(pagesInv.get(finalI + 1));
-                    System.out.println("Opening inventory " +( finalI + 2));
                 }, ClickType.LEFT);
                 page.setItem(53, element.getStack());
             }
@@ -124,7 +122,6 @@ public class WarpManager {
                 }
             }
         }
-        System.out.println("Inventory size:" + pagesInv.size());
 
         player.openInventory(pagesInv.get(0));
     }
