@@ -35,6 +35,8 @@ public class WarpManager {
         config.set(warps.size() + ".location.x", location.getX());
         config.set(warps.size() + ".location.y", location.getY());
         config.set(warps.size() + ".location.z", location.getZ());
+        config.set(warps.size() + ".location.yaw", location.getYaw());
+        config.set(warps.size() + ".location.pitch", location.getPitch());
         config.set(warps.size() + ".icon", material.name());
     }
 
@@ -109,11 +111,13 @@ public class WarpManager {
                             removeWarp(warp);
                             player.closeInventory();
                             warpInventory(player);
+                            player.sendMessage("§cWarp erfolgreich entfernt!");
                         }, ClickType.RIGHT);
                     }
                     warpElement.addClickAction(plugin, () -> {
                         player.teleport(warp.location());
                         player.closeInventory();
+                        player.sendMessage("§bDu wurdest gewarped!");
                     }, ClickType.LEFT);
                     page.setItem(k, warpElement.getStack());
                     warpsAdded++;
@@ -133,9 +137,11 @@ public class WarpManager {
                     config.getString(key + ".name"),
                     new Location(
                             Bukkit.getWorld(key + ".location.world"),
-                            config.getDouble(key + ".x"),
-                            config.getDouble(key + ".y"),
-                            config.getDouble(key + ".z")
+                            config.getDouble(key + ".location.x"),
+                            config.getDouble(key + ".location.y"),
+                            config.getDouble(key + ".location.z"),
+                            (float) config.getDouble(key + ".location.yaw"),
+                            (float) config.getDouble(key + ".location.pitch")
                     ),
                     Material.valueOf(config.getString(key + ".icon"))
             );
